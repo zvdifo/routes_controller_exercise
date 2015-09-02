@@ -9,14 +9,14 @@ namespace :fake do
     puts "========================================"
 
     def create_user
-      name      = Faker::Name.name
-      job_title = Faker::Job.title
+      name      = FFaker::Name.name
+      job_title = FFaker::Job.title
       puts "  - Creating User: #{name}: #{job_title}"
       User.create(:name => name, :job_title => job_title)
     end
 
     def create_product(user)
-      name   = Faker::Product.product_name
+      name   = FFaker::Product.product_name
       price  = rand(1000) + 1
       puts "    - Creating Product: #{name}: $#{price} sold by #{user.name}"
       user.products.create(:name => name, :price => price)
